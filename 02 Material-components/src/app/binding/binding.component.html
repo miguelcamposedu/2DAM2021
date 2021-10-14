@@ -1,0 +1,32 @@
+<p>
+    En Angular tenemos diferentes formas de comunicación entre la vista y el controlador.app-student-list
+
+    Controlador: fichero .ts del componente
+    Vista: fichero .html del componente
+
+    1. One way: 
+        1.1. Controlador -> Vista (Template literal, sintaxis moustache <!-- {{ }} -->)
+        1.2. Vista -> Controlador, Event binding, por ejemplo: (click)="metodo()"
+        de manero que metodo() debe ser definido en el fichero .ts
+        1.3. Controlador ->, Property binding. Por ejemplo: <!-- <img [src]="urlPath" /> -->
+        En el fichero .ts existe una variable urlPath donde está almacenada la ruta de la imagen
+        También podemos invocar a un método: <!-- <img [src]="getUrlPath()" /> -->
+
+        <!-- COMENTADO -->
+        <!-- <img [src]="getUrlPath('Ronaldosdfsd')" /> -->
+        <!-- <img [src]="urlPhoto" /> -->
+
+    2. Two-way data binding (comunicación en 2 vías)
+        Se realiza a través de un módulo que importar: FormsModule (debe importarse en el app.module.ts)
+</p>
+
+<hr/>
+
+<p>
+    VALOR ACTUAL DEL NOMBRE: {{nombre}}<br/>
+    <label for="name">Nombre</label>
+    <input id="name" type="text" [(ngModel)]="nombre" />
+    <input type="button" (click)="saveForm()" value="Guardar" />
+</p>
+
+
