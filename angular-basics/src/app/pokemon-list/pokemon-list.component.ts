@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonListResponse } from '../interfaces/pokemon-list.interface';
+import { Pokemon, PokemonListResponse } from '../interfaces/pokemon-list.interface';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  pokemonList: PokemonListResponse | undefined;
+  pokemonList: Pokemon[] | undefined;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -18,6 +18,7 @@ export class PokemonListComponent implements OnInit {
 
   getPokemons(pokemonLimit: number) {
     this.pokemonService.getPokemonList(pokemonLimit).subscribe( resultado => {
+      this.pokemonList = resultado.results;
       console.log(resultado);
     });
   }

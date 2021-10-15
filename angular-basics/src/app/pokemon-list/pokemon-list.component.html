@@ -3,4 +3,6 @@
 <button mat-stroked-button (click)="getPokemons(100)">100</button>
 <button mat-stroked-button (click)="getPokemons(200)">200</button>
 
-<p>pokemon-list works!</p>
+<ul>
+    <li *ngFor="let pokemon of pokemonList">{{pokemon.name}}</li>
+</ul>
