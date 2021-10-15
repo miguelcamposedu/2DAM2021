@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonListResponse } from '../interfaces/pokemon-list.interface';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -7,12 +8,14 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  
+  pokemonList: PokemonListResponse | undefined;
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    // this.pokemonService
+    this.pokemonService.getPokemonList().subscribe( resultado => {
+      console.log(resultado);
+    });
   }
 
 }
