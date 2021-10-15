@@ -9,12 +9,11 @@ const API_BASE_URL = 'https://pokeapi.co/api/v2';
   providedIn: 'root'
 })
 export class PokemonService {
-  limit = 100;
 
   constructor(private http: HttpClient) { }
 
-  getPokemonList(): Observable<PokemonListResponse> {
-    return this.http.get<PokemonListResponse>(`${API_BASE_URL}/pokemon?limit=${this.limit}`);
+  getPokemonList(limit: number): Observable<PokemonListResponse> {
+    return this.http.get<PokemonListResponse>(`${API_BASE_URL}/pokemon?limit=${limit}`);
   }
 
 }
