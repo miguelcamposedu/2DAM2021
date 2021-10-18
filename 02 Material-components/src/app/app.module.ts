@@ -5,14 +5,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
-import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { StudentListComponent } from './student-list/student-list.component';
 import { BindingComponent } from './binding/binding.component';
 import { FormsModule } from '@angular/forms';
+import { MaterialImportsModule } from './material-imports.module';
 
 @NgModule({
   declarations: [
@@ -25,10 +22,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTableModule,
-    MatToolbarModule
+    MaterialImportsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
