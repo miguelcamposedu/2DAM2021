@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8000/api'
+  apiBaseUrl: 'https://www.minitwitter.com:3001/apiv1'
 };
 
 /*
