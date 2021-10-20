@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialImportsModule } from './material-imports.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MaterialImportsModule } from './material-imports.module';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialImportsModule
+    MaterialImportsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
