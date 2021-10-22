@@ -33,5 +33,5 @@
 </mat-form-field>
 
 <ul>
-    <li *ngFor="let pokemon of pokemonList; let i = index">{{i+1}}: {{pokemon.name}} // <img [src]="getPokemonPhotoUrl(pokemon.url)" width="80px" /></li>
+    <app-pokemon-item *ngFor="let pokemon of pokemonList; let i = index" [pokemonInput]="pokemon"></app-pokemon-item>
 </ul>

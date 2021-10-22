@@ -3,3 +3,9 @@
 <a routerLink="/login">Ir a Login</a>
 <br/>
 <a (click)="goToLogin()">Ir a Login programmatically</a>
+
+
+<h3>Alumnos </h3>
+<ul>
+    <li *ngFor="let alumno of [2,3,4,5]"><a [routerLink]="['/student', alumno]">Alumno {{alumno}}</a></li>
+</ul>
