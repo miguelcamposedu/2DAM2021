@@ -15,10 +15,14 @@ export class PokemonItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getPokemonPhotoUrl(url: string): string {
-    let splitArray = url.split("/");
-    console.log(splitArray);
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[6]}.png`;
+  getPokemonPhotoUrl(url: string | undefined): string {
+    if(url) {
+      let splitArray = url.split("/");
+      console.log(splitArray);
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${splitArray[6]}.png`;
+    } else {
+      return '';
+    }
   }
 
 }
