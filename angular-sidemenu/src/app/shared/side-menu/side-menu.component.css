@@ -1,0 +1,33 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .sidenav-menu {
+      width: 300px;
+  }
+
+  .sidenav-title {
+      text-align: center;
+      padding-top: 20px;
+      text-transform: uppercase;
+      width: 100%;
+      font-weight: bold;
+  }
+
+  .sidenav-icon {
+      margin-right: 20px;
+  }
+
+  a, a:active, a:hover, a:visited {
+      text-decoration: none;
+      color: #4051B5;
+      line-height: 20px;
+  }

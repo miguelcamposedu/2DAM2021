@@ -1,0 +1,29 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="push" class="sidenav-menu">
+      <h3 class="sidenav-title">Menú</h3>
+      <mat-list role="list">
+        <mat-list-item role="listitem"><a [routerLink]="['/people']" (click)="sidenav.toggle()" routerLinkActive="router-link-active"><mat-icon class="sidenav-icon">settings_accessibility</mat-icon> Actores</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/movies']" (click)="sidenav.toggle()" routerLinkActive="router-link-active"><mat-icon class="sidenav-icon">movie_filter</mat-icon> Películas</a></mat-list-item>
+        <mat-list-item role="listitem"><a [routerLink]="['/profile']" (click)="sidenav.toggle()" routerLinkActive="router-link-active"><mat-icon class="sidenav-icon">settings</mat-icon> Mi perfil</a></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem"><mat-icon class="sidenav-icon">logout</mat-icon> Salir</mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>PopCorn</span>
+        <span class="example-spacer"></span>
+        <ng-container [ngSwitch]="currentPage">
+            <button *ngSwitchCase="'movies'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>favorite</mat-icon></button>
+            <button *ngSwitchCase="'people'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>add</mat-icon></button>
+            <button *ngSwitchCase="'profile'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>save</mat-icon></button>
+        </ng-container>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>

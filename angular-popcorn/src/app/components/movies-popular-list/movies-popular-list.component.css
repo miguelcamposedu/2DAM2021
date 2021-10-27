@@ -1,0 +1,10 @@
+.scroll-container {
+    height: 400px;
+    overflow: auto;
+    display: flex;
+}
+
+.movie-item {
+    min-width: 200px;
+    margin-right: 10px;
+}
