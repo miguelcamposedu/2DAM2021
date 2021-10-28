@@ -1,0 +1,9 @@
+<ng-container *ngIf="pokemon">
+    <h1 mat-dialog-title>Pokemon Detail</h1>
+    <div mat-dialog-content>
+
+        <img [src]="getPokemonImg()" width="100px" />
+
+        {{pokemon?.name}}
+    </div>
+</ng-container>

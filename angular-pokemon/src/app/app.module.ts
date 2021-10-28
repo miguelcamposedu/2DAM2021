@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { FormsModule } from '@angular/forms';
 import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
+import { DialogPokemonDetailComponent } from './dialogs/dialog-pokemon-detail/dialog-pokemon-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
-    PokemonItemComponent
+    PokemonItemComponent,
+    DialogPokemonDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,9 @@ import { PokemonItemComponent } from './pokemon-item/pokemon-item.component';
     BrowserAnimationsModule,
     MaterialImportsModule,
     FormsModule
+  ],
+  entryComponents: [
+    DialogPokemonDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

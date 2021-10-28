@@ -21,7 +21,11 @@ export class SideMenuComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogMovieNewComponent, {
       height: '400px',
       width: '600px',
-      disableClose: true
+      disableClose: true,
+      data: {
+        title: 'Nueva película',
+        // id: '1' >> le pasamos el idPelicula 
+       }
     });
 
     dialogRef.afterClosed().subscribe(result => {

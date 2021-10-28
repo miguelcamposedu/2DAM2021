@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>Nueva Película</h1>
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
 <div mat-dialog-content class="dialog-content">
   <p>Título de la película</p>
   <mat-form-field appearance="fill">
     <mat-label>Título</mat-label>
-    <input matInput [(ngModel)]="title">
+    <input matInput [(ngModel)]="movieTitle">
     <mat-error *ngIf="hasErrors">Debe completar el título</mat-error>
   </mat-form-field>
 </div>
