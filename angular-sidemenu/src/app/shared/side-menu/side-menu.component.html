@@ -18,7 +18,7 @@
         <span>PopCorn</span>
         <span class="example-spacer"></span>
         <ng-container [ngSwitch]="currentPage">
-            <button *ngSwitchCase="'movies'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>favorite</mat-icon></button>
+            <button (click)="openDialogNewMovie()" *ngSwitchCase="'movies'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>add</mat-icon></button>
             <button *ngSwitchCase="'people'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>add</mat-icon></button>
             <button *ngSwitchCase="'profile'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>save</mat-icon></button>
         </ng-container>
