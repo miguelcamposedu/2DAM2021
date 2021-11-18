@@ -1,3 +1,49 @@
-img {
+
+.movie-card {
+    min-height: 300px;
+}
+
+.movie-rate {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.movie-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block; 
+    font-weight: bold;
+    margin: 0;
+}
+
+.movie-overview {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block; 
+}
+
+.movie-image {
+    width: 100%;
+    overflow: hidden;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.movie-image:hover {
+    cursor: pointer;
+}
+
+.movie-image img {
     object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.movie-image:hover img {
+    transform: scale(1.3); /* 130% de la escala original */
+    transition: transform .5s ease;
 }

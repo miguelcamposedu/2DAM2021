@@ -1,7 +1,19 @@
-
-<mat-card>
+<mat-card class="movie-card">
     <mat-card-content>
-        <img [src]="getMovieImageUrl(movieInput)" height="200px" width="100%" />
-        <h3>{{movieInput.title}}</h3>
+        <div class="movie-image">
+            <img [src]="getMovieImageUrl(movieInput)" height="200px" width="100%" />
+        </div>
+        <h3 class="movie-title">{{movieInput.title}}</h3>
+        <p class="movie-overview">{{movieInput.overview}}</p>
+        <circle-progress class="movie-rate" [percent]="movieInput.vote_average * 10" [maxPercent]="100"
+            [title]="(movieInput.vote_average * 10).toString()+'%'" [radius]="20"></circle-progress>
     </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-icon-button aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite_border</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon button with a heart icon">
+            <mat-icon>playlist_add</mat-icon>
+        </button>
+    </mat-card-actions>
 </mat-card>
