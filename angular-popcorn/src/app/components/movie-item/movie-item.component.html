@@ -9,10 +9,10 @@
             [title]="(movieInput.vote_average * 10).toString()+'%'" [radius]="20"></circle-progress>
     </mat-card-content>
     <mat-card-actions align="end">
-        <button mat-icon-button aria-label="Example icon button with a heart icon">
+        <button (click)="addFavorite()" mat-icon-button aria-label="Example icon button with a heart icon">
             <mat-icon>favorite_border</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Example icon button with a heart icon">
+        <button (click)="addToPlayList()" mat-icon-button aria-label="Example icon button with a heart icon">
             <mat-icon>playlist_add</mat-icon>
         </button>
     </mat-card-actions>
