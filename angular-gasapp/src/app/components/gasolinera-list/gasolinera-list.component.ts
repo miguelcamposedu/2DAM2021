@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaEESSPrecio } from 'src/app/models/interfaces/gasolineras.interface';
+import { timingSafeEqual } from 'crypto';
+import { GasolinerasListResponse, ListaEESSPrecio } from 'src/app/models/interfaces/gasolineras.interface';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
 
 @Component({
@@ -14,11 +15,8 @@ export class GasolineraListComponent implements OnInit {
 
   ngOnInit(): void {
     this.gasolineraService.getGasolineras().subscribe(resp => {
-      console.log(resp);
-      let jsonString = JSON.stringify(resp);
-      let jsonStringReplaced = jsonString.replace(/Precio Gasoleo A/gi, 'precioGasoleA');
-      let jsonFinal = JSON.parse(jsonStringReplaced);
-      console.log(jsonFinal);
+      this.gasolineraList = this.gasolineraService.parseAnyToGasolineraListResponse(resp);
+      console.log(this.gasolineraList);
     });
   }
 
