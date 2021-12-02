@@ -7,6 +7,9 @@ import { GasolineraListComponent } from './components/gasolinera-list/gasolinera
 import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera-item.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MaterialImportsModule } from 'src/modules/material-imports.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialImportsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

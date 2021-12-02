@@ -1,1 +1,29 @@
-<p>gasolinera-list works!</p>
+<p>Filtros</p>
+
+<mat-form-field appearance="fill">
+    <mat-label>Provincias</mat-label>
+    <mat-select [formControl]="provinciaSelected" multiple (selectionChange)="onProvinciaChange()">
+      <mat-select-trigger>
+        {{provinciaSelected.value ? getFirstProvinciaName() : ''}}
+        <span *ngIf="provinciaSelected.value?.length > 1" class="example-additional-selection">
+          (+{{provinciaSelected.value.length - 1}} {{provinciaSelected.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let provincia of provinciasList" [value]="provincia.IDPovincia">{{provincia.Provincia}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+  <mat-form-field *ngIf="provinciaSelected.value.length > 0" class="example-full-width" appearance="fill">
+    <mat-label>Municipio</mat-label>
+    <input type="text"
+           placeholder="Selecciona uno"
+           matInput
+           [formControl]="municipioSelected"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let municipio of municipiosFiltered | async" [value]="municipio.IDMunicipio">
+        {{municipio.Municipio}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
