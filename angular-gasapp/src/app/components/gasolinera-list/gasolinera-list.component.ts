@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { GasolinerasListResponse, ListaEESSPrecio } from 'src/app/models/interfaces/gasolineras.interface';
+import { of } from 'rxjs';
+import { ListaEESSPrecio } from 'src/app/models/interfaces/gasolineras.interface';
 import { MunicipiosResponse } from 'src/app/models/interfaces/municipios.interface';
 import { ProvinciasResponse } from 'src/app/models/interfaces/provincias.interface';
 import { GasolineraService } from 'src/app/services/gasolinera.service';
@@ -19,11 +19,11 @@ export class GasolineraListComponent implements OnInit {
   provinciaFirstSelected = '';
   municipiosList: MunicipiosResponse[] = [];
   municipioSelected = new FormControl([]);
-  municipiosFiltered: Observable<MunicipiosResponse[]> = new Observable();
+  municipiosFiltered: MunicipiosResponse[] = [];
   
   constructor(private gasolineraService: GasolineraService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.gasolineraService.getGasolineras().subscribe(resp => {
       this.gasolineraList = this.gasolineraService.parseAnyToGasolineraListResponse(resp);
       console.log(this.gasolineraList);
@@ -33,12 +33,13 @@ export class GasolineraListComponent implements OnInit {
       this.provinciasList = resp;
     });
 
-    this.municipiosFiltered = this.municipioSelected.valueChanges.pipe(
+    this.municipioSelected.valueChanges.pipe(
       startWith(''),
       map(value => (typeof value === 'string' ? value : value.Municipio)),
       map(name => (name ? this._municipioFilter(name) : this.municipiosList.slice())),
-    );
-    
+    ).subscribe(resp => {
+      this.municipiosFiltered = resp;
+    });
   }
 
   private _municipioFilter(value: string): MunicipiosResponse[] {
@@ -53,16 +54,25 @@ export class GasolineraListComponent implements OnInit {
   }
 
   onProvinciaChange() {
-    (this.provinciaSelected.value as String[]).forEach(p => {
-      this.gasolineraService.getMunicipiosByProvinciaId(p).subscribe(resp => {
-        this.municipiosList = resp;        
-        this.municipioSelected.setValue('');
+    this.municipiosFiltered = [];
+    let count = 0;
+    this.gasolineraService.requestMultipleMunicipioProvincia(this.provinciaSelected.value as String[]).subscribe(
+      respuestaPeticionesMunicipios => {
+        respuestaPeticionesMunicipios.forEach(resp => {
+          count += resp.length;
+          this.municipiosFiltered.concat(resp);
+          this.municipioSelected.setValue('');
+        });
+
+        console.log(this.municipiosFiltered.length, count);
       });
-    });
   }
 
-  displayFn(municipio: MunicipiosResponse): string {
-    return municipio && municipio.Municipio ? municipio.Municipio : '';
+  displayFn(municipioId: string): string {
+    let municipioFind = this.municipiosList?.find(m => m.IDMunicipio == municipioId);
+    return municipioFind && municipioFind.Municipio ? municipioFind.Municipio : '';
   }
+
+
 
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { GasolinerasListResponse } from '../models/interfaces/gasolineras.interface';
 import { MunicipiosResponse } from '../models/interfaces/municipios.interface';
 import { ProvinciasResponse } from '../models/interfaces/provincias.interface';
@@ -29,5 +29,13 @@ export class GasolineraService {
 
   getMunicipiosByProvinciaId(provinciaId: String): Observable<MunicipiosResponse[]> {
     return this.http.get<MunicipiosResponse[]>(`https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/Listados/MunicipiosPorProvincia/${provinciaId}`);
+  }
+
+  public requestMultipleMunicipioProvincia(provinciasIds: String[]): Observable<MunicipiosResponse[][]> {
+    let responseMunicipios: Observable<MunicipiosResponse[]>[] = [];
+    provinciasIds.forEach(pId => {
+      responseMunicipios.push(this.getMunicipiosByProvinciaId(pId));
+    });
+    return forkJoin(responseMunicipios);
   }
 }

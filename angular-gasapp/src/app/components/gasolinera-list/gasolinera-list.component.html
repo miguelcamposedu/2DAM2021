@@ -22,7 +22,7 @@
            [formControl]="municipioSelected"
            [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let municipio of municipiosFiltered | async" [value]="municipio.IDMunicipio">
+      <mat-option *ngFor="let municipio of municipiosFiltered" [value]="municipio.IDMunicipio">
         {{municipio.Municipio}}
       </mat-option>
     </mat-autocomplete>
