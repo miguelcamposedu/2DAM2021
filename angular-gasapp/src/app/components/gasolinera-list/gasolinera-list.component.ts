@@ -60,7 +60,7 @@ export class GasolineraListComponent implements OnInit {
       respuestaPeticionesMunicipios => {
         respuestaPeticionesMunicipios.forEach(resp => {
           count += resp.length;
-          this.municipiosFiltered.concat(resp);
+          this.municipiosFiltered = this.municipiosFiltered.concat(resp);
           this.municipioSelected.setValue('');
         });
 
