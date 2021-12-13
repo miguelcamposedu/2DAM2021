@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: LoginComponent },
   { path: 'login', pathMatch: 'full', redirectTo: '/login' },
   { path: 'gasolineras', pathMatch: 'full', component: GasolinerasListComponent },
-  { path: 'gasolineras-fav', pathMatch: 'full', component: GasolinerasFavListComponent },
+  { path: 'gasolineras-fav', pathMatch: 'full', component: GasolinerasFavListComponent }, 
 ];
 
 @NgModule({

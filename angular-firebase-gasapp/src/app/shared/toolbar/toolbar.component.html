@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-
     <mat-toolbar-row>
         <span>GASapp</span>
         <span class="example-spacer"></span>
-        <span class="example-name">{{ getName() }}</span>
+        <button mat-button [matMenuTriggerFor]="menu">{{ getName() }}</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
         <img class="example-icon profile-photo" width="48px" [src]="getPhoto()" />
     </mat-toolbar-row>
 </mat-toolbar>

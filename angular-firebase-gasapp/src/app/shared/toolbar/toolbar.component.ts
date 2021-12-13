@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +20,13 @@ export class ToolbarComponent implements OnInit {
 
   getPhoto() {
     return localStorage.getItem('photo');
+  }
+
+  logout() {
+    this.firebaseAuth.signOut().then(resp => {
+      localStorage.clear();
+      this.router.navigate(['']);
+    });
   }
 
 }
