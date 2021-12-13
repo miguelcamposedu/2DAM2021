@@ -12,15 +12,30 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule, USE_DEVICE_LANGUAGE, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
+import { GasolinerasFavListComponent } from './components/gasolineras-fav-list/gasolineras-fav-list.component';
+import { GasolinerasListComponent } from './components/gasolineras-list/gasolineras-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { MaterialImportsModule } from './modules/material-imports.module';
+import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera-item.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    GasolinerasFavListComponent,
+    GasolinerasListComponent,
+    ToolbarComponent,
+    GasolineraItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialImportsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
