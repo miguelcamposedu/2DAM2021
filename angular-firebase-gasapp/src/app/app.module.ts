@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { MaterialImportsModule } from './modules/material-imports.module';
 import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera-item.component';
+import { ListasComponent } from './components/listas/listas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { GasolineraItemComponent } from './components/gasolinera-item/gasolinera
     GasolinerasFavListComponent,
     GasolinerasListComponent,
     ToolbarComponent,
-    GasolineraItemComponent
+    GasolineraItemComponent,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
