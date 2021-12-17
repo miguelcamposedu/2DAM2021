@@ -1,0 +1,11 @@
+<input type="text" [(ngModel)]="address" /> 
+<button (click)="searchAddress()">Localizar</button>
+<div *ngIf="apiLoaded | async">
+    <google-map
+      [center]="fundacionDonBoscoLatLng">
+      <map-marker
+              (mapDragend)="updateLocationMarker($event)"
+              [position]="fundacionDonBoscoLatLng"
+              [options]="markerOptions"></map-marker>
+    </google-map>
+  </div>
