@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapaComponent } from './components/mapa/mapa.component';
 import { FormsModule } from '@angular/forms';
+import { LandingComponent } from './pages/landing/landing.component';
+import { PrivateComponent } from './pages/private/private.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapaComponent
+    MapaComponent,
+    LandingComponent,
+    PrivateComponent
   ],
   imports: [
     BrowserModule,
