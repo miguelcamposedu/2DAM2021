@@ -5,8 +5,11 @@ class PlanetsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(title: const Text('Planets')),
+      body: const Center(
+        child: Text('Planets information'),
+      ),
     );
   }
 }

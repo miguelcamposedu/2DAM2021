@@ -5,8 +5,12 @@ class FilmsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(title: const Text('Films')),
+      body: Center(
+        child: ElevatedButton(onPressed: () => Navigator.of(context).pushReplacementNamed('/film-detail'),
+        child: const Text('Go to Film Detail')),
+      ),
     );
   }
 }

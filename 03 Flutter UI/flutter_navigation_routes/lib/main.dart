@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_navigation_routes/pages/films_detail_page.dart';
 import 'package:flutter_navigation_routes/pages/films_page.dart';
 import 'package:flutter_navigation_routes/pages/home_page.dart';
 import 'package:flutter_navigation_routes/pages/people_page.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/planets': (context) => const PlanetsPage(),
         '/films': (context) => const FilmsPage(),
         '/people': (context) => const PeoplePage(),
+        '/film-detail': (context) => const FilmsDetailPage(),
       },
     );
   }
