@@ -40,21 +40,44 @@ class _MenuScreenState extends State<MenuScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GestureDetector(
-              child: Icon(Icons.home),
-              onTap: () {},
+              child: Icon(Icons.home,
+                  color: _currentIndex == 0
+                      ? Colors.black
+                      : const Color(0xff999999)),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 0;
+                });
+              },
             ),
             GestureDetector(
-              child: Icon(Icons.search),
-              onTap: () {},
+              child: Icon(Icons.search,
+                  color: _currentIndex == 1
+                      ? Colors.black
+                      : const Color(0xff999999)),
+              onTap: () {
+                setState(() {
+                  _currentIndex = 1;
+                });
+              },
             ),
             GestureDetector(
-              onTap: () {},
-              child: ClipRRect(
+              onTap: () {
+                setState(() {
+                  _currentIndex = 2;
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), border: Border.all(color: _currentIndex == 2? Colors.black: Colors.transparent, width: 1)),
+                child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Image.asset(
-                    'assets/images/avatar.jpeg',
-                    width: 30,
-                  )),
+                      'assets/images/avatar.jpeg',
+                      width: 30,
+                    ),
+                ),
+              ),
             )
           ],
         ));
