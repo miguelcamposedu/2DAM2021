@@ -16,7 +16,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
     tabController = TabController(
       initialIndex: 0,
       length: 3,
-      vsync: this
+      vsync: this,
     );
   }
 
@@ -47,6 +47,8 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
               Container(
                 height: 400,
                 child: TabBarView(
+                  // Si se quiere desactivar el gesto Swipe descomentar la siguiente línea
+                  // physics: NeverScrollableScrollPhysics(),
                   controller: tabController,
                   children: [
                     Text('Tab 1'),
