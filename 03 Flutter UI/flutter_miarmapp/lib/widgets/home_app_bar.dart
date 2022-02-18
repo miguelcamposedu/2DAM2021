@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({Key? key}) : super(key: key);
@@ -10,8 +11,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
         Expanded(
           flex: 1,
-          child: Image.asset(
-            'assets/images/logo_miarmapp.png',
+          child: SvgPicture.asset(
+            'assets/images/logo_miarmapp.svg',
             width: 100,
           ),
         ),
