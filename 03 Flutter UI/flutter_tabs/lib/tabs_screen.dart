@@ -31,6 +31,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
+     
               const Text('Texto de ejemplo'),
               SizedBox(
                 height: 70,
