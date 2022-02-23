@@ -9,7 +9,7 @@ class MovieRepositoryImpl extends MovieRepository {
 
   @override
   Future<List<Movie>> fetchMovies(String type) async {
-    final response = await _client.get(Uri.parse('https://api.themoviedb.org/3/movie/$type?api_key=${Constant.apiKey}'));
+    final response = await Future.delayed(const Duration(milliseconds: 3000), () { return _client.get(Uri.parse('https://api.themoviedb.org/3/movie/$type?api_key=${Constant.apiKey}')); });
     if (response.statusCode == 200) {
       return MoviesResponse.fromJson(json.decode(response.body)).results;
     } else {

@@ -25,10 +25,8 @@ class _MoviesScreenState extends State<MoviesScreen> {
   void initState() {
     super.initState();
     movieRepository = MovieRepositoryImpl();
-    _popularMoviesBloc = MoviesBloc(movieRepository)
-      ..add(FetchMovieWithType(Constant.popular));
-    _topRatedMoviesBloc = MoviesBloc(movieRepository)
-      ..add(FetchMovieWithType(Constant.topRated));
+    _popularMoviesBloc = MoviesBloc(movieRepository)..add(FetchMovieWithType(Constant.popular));
+    _topRatedMoviesBloc = MoviesBloc(movieRepository)..add(FetchMovieWithType(Constant.topRated));
   }
 
   @override
