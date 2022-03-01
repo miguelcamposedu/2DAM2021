@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_bloc_movies/models/auth/login_dto.dart';
 import 'package:flutter_bloc_movies/models/auth/login_response.dart';
 import 'package:flutter_bloc_movies/repository/auth_repository/auth_repository.dart';
 import 'package:http/http.dart';
